@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="anima.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Filmes</title>
+</head>
+<body>
+
+    <header>
+        <div class="caixa">
+        
+            <nav>
+                <u>
+                    <li> <a href="cadastro.html" style="font-family: 'Courier New', Courier, monospace;"> Cadraste-se aqui! </a></li>
+                    <li> <a href="cpr.html" style="font-family: 'Courier New', Courier, monospace;"> Concluir compra  </a></li>
+                </u>
+            </nav>
+        </div>
+    </header>
+    <div id="banner">
+        <div id="mensagem">Filmes EN</div>
+    <script>
+        var mensagemElement = document.getElementById("mensagem");
+        var bannerWidth = document.getElementById("banner").offsetWidth;
+    
+        function animarMensagem() {
+            var left = -200; // Inicializa a posição à esquerda da tela
+            var interval = setInterval(function() {
+                left += 5; // Move 5 pixels à direita a cada iteração
+                mensagemElement.style.left = left + "px";
+    
+                // Verifica se a mensagem atingiu o final do banner
+                if (left >= bannerWidth) {
+                    clearInterval(interval); // Para a animação
+                    setTimeout(function() {
+                        mensagemElement.style.left = "-200px"; // Reinicia a mensagem à esquerda
+                        animarMensagem(); // Inicia a animação novamente
+                    }, 1000); // Espera 1 segundo antes de reiniciar
+                }
+            }, 30); // Intervalo de 30 milissegundos para suavizar a animação
+        }
+    
+        animarMensagem(); // Inicia a animação quando a página carrega
+    </script>
+        </div>
+
+
+
+
+    <div class="imagens">
+        <img src="cap-America3.jpeg" class="filme">
+        <img src="filme2.jpeg" class="filme">
+        <img src="filme3.jpeg" class="filme">
+        <img src="filme4.jpeg" class="filme">
+        <img src="filme5.jpeg" class="filme">
+        <img src="filme6.jpeg" class="filme">
+        <img src="filme7.jpeg" class="filme">
+        <img src="filme8.jpeg" class="filme">
+        <img src="filme9.jpeg" class="filme">
+        <img src="filme10.jpeg" class="filme">
+        <img src="filme11.jpeg" class="filme">
+        <img src="filme12.jpeg" class="filme">
+        <img src="filme13.jpeg" class="filme">
+        <img src="filme14.jpeg" class="filme">
+        <img src="filme15.jpeg" class="filme">
+        <img src="filme16.jpeg" class="filme">
+        <img src="filme17.jpeg" class="filme">
+        <img src="filme18.jpeg" class="filme">
+    </div>
+    
+
+    <footer>
+
+        <p class="copyright">&copy; EN-Filmes</p>
+      </footer>
+</body>
+</html>

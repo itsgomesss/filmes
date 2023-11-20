@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="anima2.css">
+    <title>Cadastro dos Clientes</title>
+</head>
+<body>
+
+    <h1>Cadastro de Usuário</h1>
+    <form id="cadastroForm">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome"><br><br>
+    
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email"><br><br>
+    
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha"><br><br>
+
+                    <label for="telefone">Telefone</label>
+                    <input type="number" id="telefone" name="telefone"><br><br>
+
+                    <label for="endereco">Endereço</label>
+                    <input type="text" id="endereco" name="endereco"><br><br>
+
+                    <button type="button" onclick="cadastrarusuario()">Cadastro</button>
+
+    </form>
+
+    <div id="mensagem"></div>
+
+    <script>
+        function cadastrarusuario(){
+            var nome = document.getElementById("nome").value;
+            var email = document.getElementById("email").value;
+            var senha = document.getElementById("senha").value;
+            var telefone = document.getElementById("telefone").value;
+            var endereco = document.getElementById("endereco").value;
+
+            if (nome === "" || email === "" || senha === ""|| telefone === ""|| endereco === "") {
+                document.getElementById("mensagem").innerHTML = "Por favor, preencha todos os campos.";
+                return;
+            }
+
+            var usuario = {
+                nome: nome,
+                email: email,
+                senha: senha,
+                endereco: endereco,
+                telefone: telefone
+            };
+
+            console.log("Usuário cadatrado: ", usuario);
+
+            document.getElementById("cadastroForm").reset();
+            document.getElementById("mensagem").innerHTML = "Cadastro realizado com sucesso!";
+        }
+    </script>
+</body>
+</html>

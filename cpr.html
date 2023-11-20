@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes</title>
+    <link rel="stylesheet" href="cpr.css">
+</head>
+<body>
+
+      <form id="cadastroForm">
+        <label for="filme"> Nome do filme</label>
+        <input type="text" id="filme" class="inputpadrao">
+        <br>
+
+        <label for="ano"> Ano de lançamento</label>
+        <input type="text" id="ano" class="inputpadrao" required>
+        <br>
+        <label for="valor"> Preço do filme</label>
+        <input type="text" id="valor" class="inputpadrao" required>
+    </form>
+
+    <input type="button" value="cadastrar" onclick="cadastrarUsuario()" >
+    <div id="mensagem2"></div>
+    <br>
+
+    <input type="text" id="valorCompra" placeholder="Insira o valor em reias ">
+      <button onclick="calcularDesconto()" id="descontoButton">Calcular Desconto</button>
+      <button onclick="total()" >Total da compra</button>
+
+      <p>Desconto aplicado: <span id="desconto"></span> </p>
+      <p>Valor da compra: <span id="total"></span></p>
+
+
+         <script>
+
+        function cadastrarUsuario(){
+                    var filme = document.getElementById("filme").value;
+                    var ano = document.getElementById("ano").value;
+                    var valor = document.getElementById("valor").value;
+                
+                if (filme === "" || ano ==="" || valor ==="") {
+                    document.getElementById("mensagem2").innerHTML= "Por favor, preencha todos os campos."
+                    return;
+                }
+
+                var usuario = {
+                filme: filme,
+                ano: ano,
+                valor: valor,
+            };
+
+                console.log("filme cadastrado: ", usuario);
+
+                document.getElementById("cadastroForm").reset();
+                document.getElementById("mensagem2").innerHTML= "Cadastro realizado com sucesso";
+                }
+
+
+          function calcularDesconto(){
+            const valorCompra= parseFloat(document.getElementById('valorCompra').value);
+
+            let desconto= 0;
+
+            if(valorCompra > 200){
+                desconto= 0.2; //20%
+            } else if (valorCompra > 100) {
+                desconto= 0.1; //10%
+            }else if ( valorCompra <= 100){
+                desconto= 0.05; //5%
+            }
+
+            const valorDesconto = valorCompra * desconto;
+            document.getElementById('desconto').textContent = `R$ ${valorDesconto.toFixed(2)}`;
+          }
+
+          function total(){
+            const valorCompra= parseFloat(document.getElementById('valorCompra').value);
+
+            let desconto= 0;
+
+            if(valorCompra > 200){
+                desconto= 0.2; //20%
+            } else if (valorCompra > 100) {
+                desconto= 0.1; //10%
+            }else if ( valorCompra <= 100){
+                desconto= 0.05; //5%
+            }
+
+            const valorDesconto = valorCompra * desconto;
+            const valorTotal= valorCompra - valorDesconto;
+
+            document.getElementById('total').textContent = `R$ ${valorTotal.toFixed(2)}`;
+          }
+      </script>
+
+</body>
+</html>
